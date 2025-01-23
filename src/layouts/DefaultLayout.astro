@@ -1,0 +1,16 @@
+---
+import '../styles/global.css';
+const { title } = Astro.props;
+const pageTitle = title ? `kentakang.com | ${title}` : 'kentakang.com';
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
