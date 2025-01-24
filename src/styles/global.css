@@ -10,4 +10,8 @@
 
 @theme {
   --font-sans: 'Pretendard Variable', sans-serif;
+  --color-primary: #4fc4cf;
+  --color-black: #181818;
+  --color-white: #fffffe;
+  --color-paragraph: #2e2e2e;
 }
