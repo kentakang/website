@@ -12,8 +12,10 @@ const pageTitle = title ? `${title} | kentakang.com` : 'kentakang.com';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{pageTitle}</title>
     <meta property="og:title" content={ogTitle || pageTitle} />
+    <meta property="og:type" content="website" />
     <meta property="og:description" content={ogDescription || 'kentakang personal website'} />
     <meta property="og:image" content={`${Astro.url.protocol}//${Astro.url.host}${ogImage}`} />
+    <meta property="og:url" content={Astro.url} />
   </head>
   <body>
     <div class="max-w-3xl mx-auto py-16">
