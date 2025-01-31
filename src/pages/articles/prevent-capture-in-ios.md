@@ -5,6 +5,7 @@ author: kentakang
 description: iOS 환경에서 캡처 방지를 구현한 방법에 대한 이야기입니다.
 writeDate: 2022-12-15
 language: korean
+thumbnail: /images/articles/prevent-capture-in-ios/1.png
 ---
 
 회사에서 진행하고 있는 웹툰 어플리케이션 구현 중 한 가지 요청을 받았다.
