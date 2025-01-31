@@ -1,8 +1,8 @@
 ---
 const currentPath = Astro.url.pathname;
 const menus = [
-  { path: '/', label: 'About' },
-  { path: '/articles', label: 'Articles' },
+  { path: '/', label: 'About', exact: true },
+  { path: '/articles', label: 'Articles', exact: false },
 ];
 const defaultPathClass = 'text-lg font-medium no-underline text-black';
 const activePathClass = `${defaultPathClass} font-bold text-primary`;
@@ -13,6 +13,6 @@ const activePathClass = `${defaultPathClass} font-bold text-primary`;
 </div>
 <div class="flex gap-4 mt-4 mb-8">
   {menus.map((menu) => (
-    <a href={menu.path} class={menu.path === currentPath ? activePathClass : defaultPathClass}>{menu.label}</a>
+    <a href={menu.path} class={(menu.exact === true ? menu.path === currentPath : currentPath.includes(menu.path)) ? activePathClass : defaultPathClass}>{menu.label}</a>
   ))}
 </div>
