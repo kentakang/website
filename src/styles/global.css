@@ -18,6 +18,10 @@
 }
 
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
   a {
     @apply text-link underline; 
   }

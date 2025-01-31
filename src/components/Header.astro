@@ -11,8 +11,11 @@ const activePathClass = `${defaultPathClass} font-bold text-primary`;
   <img src="/images/profile.jpg" alt="kentakang profile" class="w-16 h-16 rounded-sm" />
   <p class="text-4xl font-bold">kentakang</p>
 </div>
-<div class="flex gap-4 mt-4 mb-8">
-  {menus.map((menu) => (
-    <a href={menu.path} class={(menu.exact === true ? menu.path === currentPath : currentPath.includes(menu.path)) ? activePathClass : defaultPathClass}>{menu.label}</a>
-  ))}
+<div class="flex mt-4 mb-8 justify-between items-center">
+  <div class="flex gap-4">
+    {menus.map((menu) => (
+      <a href={menu.path} class={(menu.exact === true ? menu.path === currentPath : currentPath.includes(menu.path)) ? activePathClass : defaultPathClass}>{menu.label}</a>
+    ))}
+  </div>
+  <iframe src="https://github.com/sponsors/kentakang/button" title="Sponsor kentakang" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
 </div>
