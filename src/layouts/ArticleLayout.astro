@@ -1,28 +1,16 @@
 ---
 import '../styles/global.css';
-import Header from '../components/Header.astro';
 import formatWriteDate from '../utils/formatWriteDate';
+import DefaultLayout from './DefaultLayout.astro';
 
 const { frontmatter } = Astro.props;
-const pageTitle = frontmatter.title ? `kentakang.com | ${frontmatter.title}` : 'kentakang.com';
 ---
-<!doctype html>
-<html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{pageTitle}</title>
-  </head>
-  <body>
-    <div class="max-w-3xl mx-auto py-16">
-      <Header />
-      <h1 class="text-4xl font-bold">{frontmatter.title}</h1>
-      <p class="mt-4 text-gray-500">{formatWriteDate(frontmatter.writeDate)}</p>
-      <div class="contents">
-        <div class="mt-8">
-          <slot />
-        </div>
-      </div>
+<DefaultLayout title={frontmatter.title}>
+  <h1 class="text-4xl font-bold">{frontmatter.title}</h1>
+  <p class="mt-4 text-gray-500">{formatWriteDate(frontmatter.writeDate)}</p>
+  <div class="contents">
+    <div class="mt-8">
+      <slot />
     </div>
-  </body>
-</html>
+  </div>
+</DefaultLayout>
