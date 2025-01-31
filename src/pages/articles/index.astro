@@ -1,7 +1,28 @@
 ---
 import DefaultLayout from '../../layouts/DefaultLayout.astro';
+import formatWriteDate from '../../utils/formatWriteDate';
+
+const articles = Object.values(import.meta.glob('../../pages/articles/*.md', { eager: true }));
+
+articles.sort((a: any, b: any) => {
+  const aDate: string = a.frontmatter.writeDate;
+  const bDate: string = b.frontmatter.writeDate;
+
+  return new Date(bDate).getTime() - new Date(aDate).getTime();
+});
 ---
 
 <DefaultLayout>
-  <p>articles</p>
+  <ul>
+    {
+      articles.map((article: any) => (
+        <li class="mb-4">
+          <a class="no-underline" href={article.url}>
+            <p class="text-lg font-medium text-black no-underline">{article.frontmatter.title}</p>
+            <p class="mt-1 text-sm text-gray-500">{formatWriteDate(article.frontmatter.writeDate)}</p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </DefaultLayout>
