@@ -23,13 +23,13 @@ language: korean
 
 #### 넷플릭스
 
-![](https://cdn-images-1.medium.com/max/800/1*04svFhKrYDH6OxIlZQzKpg.png)
+![](/images/articles/prevent-capture-in-ios/1.png)
 
 넷플릭스 앱의 경우 위와 같이 검은색 화면이 캡처된다.
 
 #### 카카오웹툰
 
-![](https://cdn-images-1.medium.com/max/800/1*gk_Gk9TNOGr5lH0ZBx0pTA.png)
+![](/images/articles/prevent-capture-in-ios/2.png)
 
 카카오웹툰의 경우 이미지를 하얀색으로 만들고, 저작권 법적 고지 안내를 표시한다.
 
@@ -77,7 +77,7 @@ iOS는 NotificationCenter를 통해 캡처 이벤트를 감지할 수 있다.
 
 그 중 내 눈길을 끄는 첫 번째 답변
 
-![](https://cdn-images-1.medium.com/max/800/1*RmPXPi-7s8AOisZtcAWi6Q.png)
+![](/images/articles/prevent-capture-in-ios/3.png)
 
 비밀번호를 입력하는 UITextField는 캡처 시 캡처 이미지에 포함되지 않도록 처리가 된다.
 
@@ -87,7 +87,7 @@ iOS는 NotificationCenter를 통해 캡처 이벤트를 감지할 수 있다.
 
 그래도 시도해봐서 나쁠 것은 없으니 바로 해당 코드를 활용해 스플래시 화면이 캡처되지 않도록 적용해보았다.
 
-![](https://cdn-images-1.medium.com/max/800/1*-a9DBQLovib4_vYYTZlXKg.png)
+![](/images/articles/prevent-capture-in-ios/4.png)
 
 ???????
 
