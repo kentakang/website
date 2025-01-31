@@ -6,7 +6,8 @@ import DefaultLayout from './DefaultLayout.astro';
 const { frontmatter } = Astro.props;
 ---
 <DefaultLayout title={frontmatter.title}>
-  <h1 class="text-4xl font-bold">{frontmatter.title}</h1>
+  <a class="text-base text-gray-600 no-underline" href="/articles">← Back to articles</a>
+  <h1 class="text-4xl font-bold mt-4">{frontmatter.title}</h1>
   <p class="mt-4 text-gray-500">{formatWriteDate(frontmatter.writeDate)}</p>
   <div class="contents">
     <div class="mt-8">
