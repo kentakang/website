@@ -23,7 +23,7 @@ language: korean
 
 #### 넷플릭스
 
-![](https://cdn-images-1.medium.com/max/800/1*04svFhKrYDH6OxIlZQzKpg.png align="left")
+![](https://cdn-images-1.medium.com/max/800/1*04svFhKrYDH6OxIlZQzKpg.png)
 
 넷플릭스 앱의 경우 위와 같이 검은색 화면이 캡처된다.
 
