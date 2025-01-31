@@ -14,4 +14,11 @@
   --color-black: #181818;
   --color-white: #fffffe;
   --color-paragraph: #2e2e2e;
+  --color-link: #994ff3;
+}
+
+@layer base {
+  a {
+    @apply text-link underline; 
+  }
 }
