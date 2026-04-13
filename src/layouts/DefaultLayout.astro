@@ -1,28 +1,44 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 const { title, ogTitle, ogDescription, ogImage } = Astro.props;
-const pageTitle = title ? `${title} | kentakang.com` : 'kentakang.com';
+const pageTitle = title ? `${title} | kentakang.com` : "kentakang.com";
 ---
+
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{pageTitle}</title>
-    <meta property="og:title" content={ogTitle || pageTitle} />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content={ogDescription || 'kentakang personal website'} />
-    <meta property="og:image" content={`${Astro.url.protocol}//${Astro.url.host}${ogImage}`} />
-    <meta property="og:url" content={Astro.url} />
-    <meta property="og:site_name" content="kentakang.com" />
-  </head>
-  <body>
-    <div class="w-full max-w-3xl mx-auto px-4 py-10 sm:px-6 sm:py-14 lg:px-0 lg:py-16">
-      <Header />
-      <slot />
-      <Footer />
-    </div>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>{pageTitle}</title>
+        <meta property="og:title" content={ogTitle || pageTitle} />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:description"
+            content={ogDescription || "kentakang personal website"}
+        />
+        <meta
+            property="og:image"
+            content={`${Astro.url.protocol}//${Astro.url.host}${ogImage}`}
+        />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:site_name" content="kentakang.com" />
+    </head>
+    <body>
+        <div
+            class="w-full max-w-3xl mx-auto px-4 py-10 sm:px-6 sm:py-14 lg:px-0 lg:py-16"
+        >
+            <Header />
+            <slot />
+            <Footer />
+        </div>
+        <!-- Cloudflare Web Analytics -->
+        <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon='{"token": "381f3b4bed8f407ba16b2e7091c67a96"}'
+        ></script>
+        <!-- End Cloudflare Web Analytics -->
+    </body>
 </html>
