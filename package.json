@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "4.1.13",
-    "astro": "5.13.9",
+    "astro": "6.1.5",
     "dayjs": "1.11.18",
     "tailwindcss": "4.1.13"
   },
