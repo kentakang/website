@@ -55,6 +55,30 @@
       @apply text-base/relaxed mb-3;
     }
 
+    sub {
+      @apply static mt-2 block align-baseline text-sm/relaxed text-gray-500;
+    }
+
+    sub a {
+      @apply text-gray-600 underline decoration-gray-300 decoration-1 underline-offset-2;
+    }
+
+    sub a:hover {
+      @apply text-link decoration-link;
+    }
+
+    sup {
+      @apply text-xs leading-none;
+    }
+
+    [data-footnote-ref] {
+      @apply font-medium text-link no-underline;
+    }
+
+    hr {
+      @apply my-8 border-0 border-t border-gray-200;
+    }
+
     ul {
       list-style-type: disc;
       margin-left: 1.5rem;
@@ -75,6 +99,42 @@
       p {
         @apply mb-0 text-base font-medium leading-relaxed text-gray-800;
       }
+    }
+
+    .footnotes {
+      @apply mt-10 border-t border-gray-200 pt-5 text-sm/relaxed text-gray-500;
+
+      h2 {
+        @apply sr-only;
+      }
+
+      ol {
+        @apply list-decimal pl-5;
+      }
+
+      li {
+        @apply pl-1 text-sm/relaxed text-gray-500;
+      }
+
+      p {
+        @apply mb-2 text-sm/relaxed text-gray-500;
+      }
+
+      a {
+        @apply text-gray-600 underline decoration-gray-300 decoration-1 underline-offset-2;
+      }
+
+      a:hover {
+        @apply text-link decoration-link;
+      }
+
+      .data-footnote-backref {
+        @apply ml-1 text-gray-400 no-underline;
+      }
+    }
+
+    hr + .footnotes {
+      @apply mt-6 border-t-0 pt-0;
     }
   }
 }
