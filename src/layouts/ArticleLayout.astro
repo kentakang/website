@@ -4,6 +4,31 @@ import formatWriteDate from '../utils/formatWriteDate';
 import DefaultLayout from './DefaultLayout.astro';
 
 const { frontmatter } = Astro.props;
+const contentClass = [
+  'contents',
+  '[&_h1]:text-3xl',
+  'sm:[&_h1]:text-4xl',
+  '[&_h1]:leading-tight',
+  '[&_h2]:text-2xl',
+  'sm:[&_h2]:text-3xl',
+  '[&_h2]:leading-tight',
+  '[&_h3]:text-xl',
+  'sm:[&_h3]:text-2xl',
+  '[&_h3]:leading-snug',
+  '[&_ol]:my-4',
+  '[&_ol]:list-decimal',
+  '[&_ol]:pl-5',
+  '[&_ol_li]:pl-1',
+  '[&_ol_li]:break-normal',
+  '[&_ul]:ml-0',
+  '[&_ul]:w-auto',
+  '[&_ul]:pl-5',
+  '[&_ul_li]:break-normal',
+  '[&_a]:break-normal',
+  '[&_a]:[overflow-wrap:anywhere]',
+  '[&_blockquote]:p-3',
+  'sm:[&_blockquote]:p-4',
+].join(' ');
 ---
 <DefaultLayout 
   title={frontmatter.title} 
@@ -12,9 +37,9 @@ const { frontmatter } = Astro.props;
   ogImage={frontmatter.thumbnail}
 >
   <a class="text-base text-gray-600 no-underline" href="/articles">← Back to articles</a>
-  <h1 class="text-4xl font-bold mt-4">{frontmatter.title}</h1>
+  <h1 class="text-3xl sm:text-4xl font-bold leading-tight mt-4">{frontmatter.title}</h1>
   <p class="mt-4 text-gray-500">{formatWriteDate(frontmatter.writeDate)}</p>
-  <div class="contents">
+  <div class={contentClass}>
     <div class="mt-8">
       <slot />
     </div>

@@ -4,18 +4,18 @@ const menus = [
   { path: '/', label: 'About', exact: true },
   { path: '/articles', label: 'Articles', exact: false },
 ];
-const defaultPathClass = 'text-lg font-medium no-underline text-black';
+const defaultPathClass = 'py-1 text-base sm:text-lg font-medium no-underline text-black';
 const activePathClass = `${defaultPathClass} font-bold text-primary`;
 ---
-<div class="flex gap-6 items-center">
-  <img src="/images/profile.jpg" alt="kentakang profile" class="w-16 h-16 rounded-sm" />
-  <p class="text-4xl font-bold">kentakang</p>
+<div class="flex flex-wrap gap-x-4 gap-y-3 sm:gap-6 items-center">
+  <img src="/images/profile.jpg" alt="kentakang profile" class="w-12 h-12 sm:w-16 sm:h-16 rounded-sm shrink-0" />
+  <p class="text-3xl sm:text-4xl font-bold leading-tight">kentakang</p>
 </div>
-<div class="flex mt-4 mb-8 justify-between items-center">
-  <div class="flex gap-4">
+<div class="flex flex-col gap-4 mt-4 mb-8 sm:flex-row sm:justify-between sm:items-center">
+  <nav class="flex flex-wrap gap-x-4 gap-y-2">
     {menus.map((menu) => (
       <a href={menu.path} class={(menu.exact === true ? menu.path === currentPath : currentPath.includes(menu.path)) ? activePathClass : defaultPathClass}>{menu.label}</a>
     ))}
-  </div>
-  <iframe src="https://github.com/sponsors/kentakang/button" title="Sponsor kentakang" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+  </nav>
+  <iframe class="max-w-full" src="https://github.com/sponsors/kentakang/button" title="Sponsor kentakang" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
 </div>

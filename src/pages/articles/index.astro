@@ -14,13 +14,13 @@ articles.sort((a: any, b: any) => {
 ---
 
 <DefaultLayout>
-  <ul>
+  <ul class="space-y-4">
     {
       articles.map((article: any) => (
-        <li class="mb-4">
-          <a class="no-underline" href={article.url}>
-            <p class="text-xl font-medium text-black no-underline">{article.frontmatter.title}</p>
-            <div class="flex gap-2 mt-1">
+        <li>
+          <a class="block py-1 no-underline" href={article.url}>
+            <p class="text-lg sm:text-xl font-medium leading-snug text-black no-underline">{article.frontmatter.title}</p>
+            <div class="flex flex-wrap gap-x-2 gap-y-1 mt-1">
               <p class="text-base">{formatLanguage(article.frontmatter.language)}</p>
               <p class="text-base text-gray-500">{formatWriteDate(article.frontmatter.writeDate)}</p>
             </div>
