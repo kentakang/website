@@ -19,7 +19,7 @@ jobs:
       - name: Build website
         uses: withastro/action@v3
         with:
-          node-version: 22.19.0
+          node-version: 24.14.1
   deploy:
     needs: build
     runs-on: ubuntu-latest
