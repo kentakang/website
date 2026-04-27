@@ -1,35 +1,17 @@
+---
+import { resume } from '../../data/resume';
+---
+
 <div class="mt-8">
   <h1 class="text-2xl font-bold">Experiences</h1>
   <ul class="list-disc pl-5 mt-4 space-y-4">
-    <li>
-      <div class="block max-w-full lg:max-w-lg break-words">
-        <p>2025. 07 - present</p>
-        <p class="mt-1">Co-Founder at <a target="_blank" href="https://repixel.co.kr">Repixel Co, Ltd.</a></p>
-      </div>
-    </li>
-    <li>
-      <div class="block max-w-full lg:max-w-lg break-words">
-        <p>2021. 02 - 2025.07</p>
-        <p class="mt-1">Co-Founder and Chief Technology Officer at <a target="_blank" href="https://boundary.team">Investy Co, Ltd.</a></p>
-      </div>
-    </li>
-    <li>
-      <div class="block max-w-full lg:max-w-lg break-words">
-        <p>2020. 01 - 2021. 02</p>
-        <p class="mt-1">Development Team Leader at DKBrothers.</p>
-      </div>
-    </li>
-    <li>
-      <div class="block max-w-full lg:max-w-lg break-words">
-        <p>2018. 12 - 2020. 01</p>
-        <p class="mt-1">Backend Developer at DKBrothers.</p>
-      </div>
-    </li>
-    <li>
-      <div class="block max-w-full lg:max-w-lg break-words">
-        <p>2017. 03 - 2020. 02</p>
-        <p class="mt-1">Studied Computer Network at <a href="https://hanyang.sen.hs.kr/" target="_blank">Hanyang Technical High School</a>.</p>
-      </div>
-    </li>
+    {resume.experiences.map((experience) => (
+      <li>
+        <div class="block max-w-full lg:max-w-lg break-words">
+          <p>{experience.period}</p>
+          <p class="mt-1">{experience.role} at {experience.url ? <a target="_blank" href={experience.url}>{experience.organization}</a> : experience.organization}{'suffix' in experience ? experience.suffix : ''}</p>
+        </div>
+      </li>
+    ))}
   </ul>
 </div>

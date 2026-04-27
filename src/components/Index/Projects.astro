@@ -1,26 +1,18 @@
+---
+import { resume } from '../../data/resume';
+---
+
 <div class="mt-8">
   <h1 class="text-2xl font-bold">Personal Projects</h1>
   <ul class="list-disc pl-5 mt-4 space-y-4">
-    <li>
-      <div class="block max-w-full lg:max-w-lg break-words">
-        <p><a href="https://github.com/repixelcorp/hyper-pwt" target="_blank">hyper-pwt</a></p>
-        <p class="mt-1">A faster, more modern, superior alternative for Mendix PWT.</p>
-        <p class="mt-1">Project Founder and Maintainer</p>
-      </div>
-    </li>
-    <li>
-      <div class="block max-w-full lg:max-w-lg break-words">
-        <p><a href="https://github.com/investycorp/prisma-schema-import" target="_blank">prisma-schema-import</a></p>
-        <p class="mt-1">CLI Tool for importing Prisma schema.</p>
-        <p class="mt-1">Project Founder and Maintainer</p>
-      </div>
-    </li>
-    <li>
-      <div class="block max-w-full lg:max-w-lg break-words">
-        <p><a href="https://github.com/kentakang/oss-license-check" target="_blank">oss-license-check</a></p>
-        <p class="mt-1">CLI Tool for checking OSS licenses.</p>
-        <p class="mt-1">Project Founder and Maintainer</p>
-      </div>
-    </li>
+    {resume.projects.map((project) => (
+      <li>
+        <div class="block max-w-full lg:max-w-lg break-words">
+          <p><a href={project.url} target="_blank">{project.name}</a></p>
+          <p class="mt-1">{project.description}</p>
+          <p class="mt-1">{project.role}</p>
+        </div>
+      </li>
+    ))}
   </ul>
 </div>

@@ -1,6 +1,10 @@
+---
+import { resume } from '../../data/resume';
+---
+
 <div>
     <p class="text-base">
-        Hello! I'm a software engineer based in Seoul, Korea.
+        {resume.summary[0]}
     </p>
     <p class="text-base mt-4">
         I'm interested in frontend development using <a
@@ -21,8 +25,11 @@
             target="_blank"
             href="https://github.com/kentakang">Github</a
         > and <a target="_blank" href="https://www.linkedin.com/in/kentakang"
-            >LinkedIn</a
+        >LinkedIn</a
         >, <a target="_blank" href="https://x.com/kentakang_">X</a>. Or email me
         at <a href="mailto:me@kentakang.com">me@kentakang.com</a>.
+    </p>
+    <p class="text-base mt-4">
+        <a href="/resume.pdf" download="resume.pdf">Download resume as PDF</a>.
     </p>
 </div>
