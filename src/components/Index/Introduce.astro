@@ -1,5 +1,10 @@
 ---
 import { resume } from '../../data/resume';
+
+const contactLinks = resume.links.map((link) => ({
+  ...link,
+  label: 'webLabel' in link ? link.webLabel : link.label,
+}));
 ---
 
 <div>
@@ -7,29 +12,34 @@ import { resume } from '../../data/resume';
         {resume.summary[0]}
     </p>
     <p class="text-base mt-4">
-        I'm interested in frontend development using <a
-            target="_blank"
-            href="https://reactjs.org">React</a
-        > and <a target="_blank" href="https://reactnative.dev">React Native</a
-        >.<br />And also backend development using <a
-            target="_blank"
-            href="https://rust-lang.org">Rust</a
-        >, <a target="_blank" href="https://kotlinlang.org">Kotlin</a>.
+        {resume.website.introduction[0].map((chunk) => (
+            'lineBreak' in chunk ? (
+                <br />
+            ) : 'url' in chunk ? (
+                <a target="_blank" href={chunk.url}>{chunk.text}</a>
+            ) : (
+                chunk.text
+            )
+        ))}
+    </p>
+    {resume.website.introduction.slice(1).map((paragraph) => (
+        <p class="text-base mt-4">
+            {paragraph.map((chunk) => (
+                'lineBreak' in chunk ? (
+                    <br />
+                ) : 'url' in chunk ? (
+                    <a target="_blank" href={chunk.url}>{chunk.text}</a>
+                ) : (
+                    chunk.text
+                )
+            ))}
+        </p>
+    ))}
+    <p class="text-base mt-4">
+        You can reach me on <a target="_blank" href={contactLinks[0].url}>{contactLinks[0].label}</a> and <a target="_blank" href={contactLinks[1].url}>{contactLinks[1].label}</a>, <a target="_blank" href={contactLinks[2].url}>{contactLinks[2].label}</a>. Or email me
+        at <a href={`mailto:${resume.email}`}>{resume.email}</a>.
     </p>
     <p class="text-base mt-4">
-        Aside from the technical skills, I'm very interested in the means of
-        protecting privacy through cryptography and enjoy reinventing the wheel.
-    </p>
-    <p class="text-base mt-4">
-        You can reach me on <a
-            target="_blank"
-            href="https://github.com/kentakang">Github</a
-        > and <a target="_blank" href="https://www.linkedin.com/in/kentakang"
-        >LinkedIn</a
-        >, <a target="_blank" href="https://x.com/kentakang_">X</a>. Or email me
-        at <a href="mailto:me@kentakang.com">me@kentakang.com</a>.
-    </p>
-    <p class="text-base mt-4">
-        <a href="/resume.pdf" download="resume.pdf">Download resume as PDF</a>.
+        <a href={resume.website.resumeDownload.url} download={resume.website.resumeDownload.filename}>{resume.website.resumeDownload.label}</a>.
     </p>
 </div>

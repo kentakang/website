@@ -1,21 +1,80 @@
+const frontendTechnologies = [
+  { text: 'React', url: 'https://reactjs.org' },
+  { text: 'React Native', url: 'https://reactnative.dev' },
+] as const;
+
+const backendTechnologies = [
+  { text: 'Rust', url: 'https://rust-lang.org' },
+  { text: 'Kotlin', url: 'https://kotlinlang.org' },
+] as const;
+
+const privacyInterest = 'protecting privacy through cryptography';
+const personalInterest = 'reinventing the wheel';
+
+const technologyLabels = (
+  technologies: readonly { text: string }[],
+  separator: string,
+) => technologies.map((technology) => technology.text).join(separator);
+
+const technologyLinks = (
+  technologies: readonly { text: string; url: string }[],
+  separator: string,
+) =>
+  technologies.flatMap((technology, index) =>
+    index === 0 ? [technology] : [{ text: separator }, technology],
+  );
+
 export const resume = {
   name: 'Chan Kang (kentakang)',
   title: 'Software Engineer',
   location: 'Seoul, Korea',
   email: 'me@kentakang.com',
   links: [
-    { label: 'GitHub', url: 'https://github.com/kentakang' },
+    { label: 'GitHub', webLabel: 'Github', url: 'https://github.com/kentakang' },
     { label: 'LinkedIn', url: 'https://www.linkedin.com/in/kentakang' },
     { label: 'X', url: 'https://x.com/kentakang_' },
   ],
+  website: {
+    introduction: [
+      [
+        {
+          text: "I'm interested in frontend development using ",
+        },
+        ...technologyLinks(frontendTechnologies, ' and '),
+        {
+          text: '.',
+        },
+        {
+          lineBreak: true,
+        },
+        {
+          text: 'And also backend development using ',
+        },
+        ...technologyLinks(backendTechnologies, ', '),
+        {
+          text: '.',
+        },
+      ],
+      [
+        {
+          text: `Aside from the technical skills, I'm very interested in the means of ${privacyInterest} and enjoy ${personalInterest}.`,
+        },
+      ],
+    ],
+    resumeDownload: {
+      label: 'Download resume as PDF',
+      url: '/resume.pdf',
+      filename: 'resume.pdf',
+    },
+  },
   summary: [
     "Hello! I'm a software engineer based in Seoul, Korea.",
-    'I am interested in frontend development using React and React Native, and backend development using Rust and Kotlin.',
-    'Aside from the technical skills, I am very interested in the means of protecting privacy through cryptography and enjoy reinventing the wheel.',
+    `I am interested in frontend development using ${technologyLabels(frontendTechnologies, ' and ')}, and backend development using ${technologyLabels(backendTechnologies, ' and ')}.`,
+    `Aside from the technical skills, I am very interested in the means of ${privacyInterest} and enjoy ${personalInterest}.`,
   ],
   skills: [
-    'Frontend development: React, React Native',
-    'Backend development: Rust, Kotlin',
+    `Frontend development: ${technologyLabels(frontendTechnologies, ', ')}`,
+    `Backend development: ${technologyLabels(backendTechnologies, ', ')}`,
     'Privacy, cryptography, and open source software',
   ],
   experiences: [
